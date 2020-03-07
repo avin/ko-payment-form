@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html --public-url /ko-payment-form/"
   },
   "keywords": [],
   "author": "",
