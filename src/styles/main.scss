@@ -1,0 +1,84 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+body {
+  line-height: 18px;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.appear-animated {
+  animation: appear-animation 0.35s ease-out forwards;
+  opacity: 0;
+
+  @keyframes appear-animation {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+.payment-form {
+  width: 300px;
+}
+
+.pan-container {
+  position: relative;
+}
+
+.payment-system-logo {
+  position: absolute;
+  height: 24px;
+  top: 8px;
+  right: 8px;
+
+  img {
+    height: 100%;
+  }
+}
+
+.success-tick {
+  height: 100px;
+  width: 100px;
+}
+
+.success-tick-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.payment-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner-border {
+    margin-right: 10px;
+  }
+}
+
+#cc-cvc {
+  -webkit-text-security: disc;
+}
+
+// Убираем бутстраповские иконки валидации
+.form-control.is-invalid {
+  background-image: none;
+}
+
+::-ms-clear {
+  display: none;
+}

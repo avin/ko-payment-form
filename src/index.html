@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Payment form</title>
+    <link rel="stylesheet" href="./styles/main.scss" />
+  </head>
+  <body>
+    <div data-bind="if: !isFinished()">
+      <div class="root">
+        <form data-bind="submit: submitForm" class="payment-form card shadow appear-animated">
+          <div class="card-body">
+            <div class="mb-3" data-bind="with: fields.pan">
+              <label for="cc-number">Card Number</label>
+              <div class="pan-container">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-number"
+                  placeholder="XXXX XXXX XXXX XXXX"
+                  data-bind="maskInput: value, css: { 'is-invalid': showValidationError() }"
+                />
+
+                <!-- ko if: $root.cardTypeIcon -->
+                <div class="payment-system-logo">
+                  <img src="" alt="" data-bind="attr: { src: $root.cardTypeIcon }" />
+                </div>
+                <!-- /ko -->
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3" data-bind="with: fields.expiry">
+                <label for="cc-expiry">Expiry</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-expiry"
+                  placeholder="XX / XX"
+                  data-bind="maskInput: value, css: { 'is-invalid': showValidationError() }"
+                />
+              </div>
+              <div class="col-md-6 mb-3" data-bind="with: fields.cvc">
+                <label for="cc-cvc" data-bind="text: $root.cardTypeCvcName">CVC</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-cvc"
+                  placeholder="XXX"
+                  data-bind="maskInput: value, css: { 'is-invalid': showValidationError() }, attr: { type: $root.cvcInputType }"
+                />
+              </div>
+            </div>
+
+            <div class="mb-3" data-bind="with: fields.holder">
+              <label for="cc-holder">Card Holder</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-holder"
+                placeholder="CARDHOLDER NAME"
+                data-bind="maskInput: value"
+              />
+            </div>
+
+            <hr class="mb-3" />
+
+            <div class="mb-3">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block payment-button"
+                data-bind="attr: { disabled: isSubmitInProgress }"
+              >
+                <!-- ko if: isSubmitInProgress -->
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <!-- /ko -->
+                PAY
+              </button>
+            </div>
+            <!-- ko if: showCheckFormWarning -->
+            <div class="text-center text-danger">Check form fields!</div>
+            <!-- /ko -->
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div data-bind="if: isFinished()">
+      <div class="root" data-bind="if: isFinished()">
+        <div class="card final-card shadow appear-animated">
+          <div class="card-body text-nowrap text-center">
+            <div class="success-tick-container">
+              <img class="success-tick" src="./img/tick.svg" alt="" />
+            </div>
+            <h3 class="text-success">Payment Successful!</h3>
+
+            <hr />
+
+            <div class="text-muted">Transaction number: <strong>5498732216498215</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
