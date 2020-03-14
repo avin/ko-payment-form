@@ -1,4 +1,4 @@
-# Payment form
+# Payment form [![Build Status](https://travis-ci.org/avin/ko-payment-form.svg?branch=master)](https://travis-ci.org/avin/ko-payment-form)
 
 Example of a payment form built with [Knockout](https://knockoutjs.com/) and [Bootstrap](https://getbootstrap.com/). 
 
