@@ -4,4 +4,6 @@ Example of a payment form built with [Knockout](https://knockoutjs.com/) and [Bo
 
 Live version is [here](https://avin.github.io/ko-payment-form).
 
+Also see same form built with Vue.js [here](https://github.com/avin/vue-payment-form).
+
 [![preview](./additional/preview.png)](https://avin.github.io/ko-payment-form)
